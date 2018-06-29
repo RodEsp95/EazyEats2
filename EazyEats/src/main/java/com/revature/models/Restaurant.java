@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table
 public class Restaurant {
+	//Later remove generatedValue annotations
 	@Id
 	@Column(name="RESTAURANT_ID")
 	private int id;
