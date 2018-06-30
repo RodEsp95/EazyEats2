@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-5">Find your next favorite restaurant!</h1>
+       <!-- <div class="form-group">
+        <br>
+          <input class="form-control form-control-lg" type="text" placeholder="Search for your city..." id="inputLarge">
+          <br> -->
+          <!--Working on two options: this seach bar and drop down menus below-->
+          <!-- <button type="button" class="btn btn-success btn-lg" (click)=showRestaurants()>Get Started!</button>
+        </div>
+        <br>
+        <br> -->
+        <div class="form-group">
+            <label for="cityselect">Select Your City</label>
+            <select class="form-control col-sm-6" id="cityselect" [(ngModel)]="city">
+              <option disabled selected value></option>
+              <option value="289">Boston</option>
+              <option value="292">Chicago</option>
+              <option value="281">Los Angeles</option>
+              <option value="280">New York City</option>
+              <option value="283">Washington DC</option>
+            </select>
+          </div>
+          <!-- <p>{{city}}</p> -->
+          <div class="form-group">
+              <label for="cuisineselect">Select Your Cuisine</label>
+              <select class="form-control col-sm-6" id="cuisineselect" [(ngModel)]="cuisine">
+                <option disabled selected value> </option>
+                <option value="137">Halal</option>
+                <option value="265">Kosher</option>
+                <option value="308">Vegetarian</option>
+              </select>
+            </div>
+            <!-- <p>{{cuisine}}</p> -->
+          <button type="button" class="btn btn-success btn-lg" (click)=showRestaurants()>Search!</button>
+          <!-- <ul>
+           <li *ngFor="let city of cities">
+          </li>
+        </ul> -->
+    </div>
+  </div>
