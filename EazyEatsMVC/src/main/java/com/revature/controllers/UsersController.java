@@ -44,15 +44,6 @@ public class UsersController {
 		return "SearchUser";
 	}
 	
-	/*
-	 * Example using post
-	//@RequestMapping(value="bears/search", method=RequestMethod.POST)
-	@PostMapping("/bears/search")
-	public String getBear(@RequestParam("id") int bearId) {
-		return "redirect:/bears/"+bearId;
-	}
-	*/
-	
 	@PostMapping("users/search")
 	public String getUser(HttpServletRequest req) {
 		String userId = req.getParameter("id");
