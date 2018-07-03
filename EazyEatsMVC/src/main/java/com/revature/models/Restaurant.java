@@ -14,6 +14,15 @@ public class Restaurant {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+
+	public Restaurant(int id) {
+		super();
+		this.id = id;
+	}
+
+
 
 	public int getId() {
 		return id;

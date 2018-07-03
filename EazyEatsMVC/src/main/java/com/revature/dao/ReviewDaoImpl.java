@@ -91,6 +91,7 @@ public class ReviewDaoImpl implements ReviewDao{
 		c.add(Restrictions.eq("restaurant.id", id));
 		c.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Review> restaurantReviews = c.list();
+		s.close();
 		return restaurantReviews;
 	}
 	

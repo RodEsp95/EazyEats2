@@ -24,11 +24,14 @@ public class ReviewController {
 	@Autowired
 	ReviewDaoImpl rdi;
 	
+	//call with: URL/reviews
 	@GetMapping("/reviews")
+	@ResponseBody
 	public List<Review> getReviews(){
 		return rdi.getReviews();
 	}
 	
+	//call with: URL/reviews/{id} where id is from the ID column in REVIEW
 	@GetMapping("/reviews/{id}")
 	@ResponseBody
 	public Review getReviewById(@PathVariable("id") int id) {
@@ -39,28 +42,52 @@ public class ReviewController {
 		return r;
 	}
 	
+	/**
+	 * TODO
+	 * need to resolve this with the frontend
+	 */
 	@RequestMapping(value="/reviews/search", method=RequestMethod.GET)
 	public String getSearchPage() {
 		return "SearchReview";
 	}
 	
+	/**
+	 * TODO
+	 * need to resolve this with the frontend
+	 */
 	@PostMapping(value="/reviews/search")
 	public String getReview(HttpServletRequest req) {
 		String revId = req.getParameter("id");
 		return "redirect:/reviews/"+revId;
 	}
 	
+	//call with URL/reviews/create
 	@RequestMapping(value="/reviews/create", method=RequestMethod.GET)
 	public String getCreatePage() {
 		return "NewReview";
 	}
 	
+	//call with URL/reviews/create
 	@RequestMapping(value="/reviews/create", method=RequestMethod.POST)
 	public String addReview(@RequestParam("body") String body, @RequestParam("rating") int rating,
 			@RequestParam("needsReview") boolean needsReview) {
 		rdi.createReview(new Review(body, rating, needsReview));
 		return "redirect:/NewReview.html";
 		
+	}
+	
+	//call with URL/reviews/byUser/{id}
+	@GetMapping("/reviews/byUser/{id}")
+	@ResponseBody
+	public List<Review> getReviewsUserId(@PathVariable("id") Integer id){
+		return rdi.getReviewsByUserId(id);
+	}
+	
+	//call with URL/reviews/byUser/{id}
+	@GetMapping("/reviews/byRestaurant/{id}")
+	@ResponseBody
+	public List<Review> getReviewsRestaurantId(@PathVariable("id") Integer id){
+		return rdi.getReviewsByRestaurantId(id);
 	}
 	
 

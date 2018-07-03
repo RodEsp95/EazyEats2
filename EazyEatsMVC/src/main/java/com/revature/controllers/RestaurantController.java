@@ -24,11 +24,15 @@ public class RestaurantController {
 	@Autowired
 	RestaurantDaoImpl rdi;
 	
+	//Call with URL/restaurants
 	@GetMapping("/restaurants")
+	@ResponseBody
 	public List<Restaurant> getRestaurants(){
 		return rdi.getRestaurants();
 	}
 	
+	//Call with URL/restaurants/{id} (id is the value in the ID column in the 
+	//RESTAURANTS table
 	@GetMapping("/restaurants/{id}")
 	@ResponseBody
 	public Restaurant getRestaurantById(@PathVariable("id") int id) {
@@ -39,26 +43,37 @@ public class RestaurantController {
 		return r;
 	}
 	
+	/**
+	 * TODO
+	 * need to resolve this with the frontend
+	 */
 	@RequestMapping(value="/restaurants/search", method= RequestMethod.GET)
 	public String getSearchPage() {
 		return "SearchRestaurant";
 	}
 	
+	/**
+	 * TODO
+	 * need to resolve this with the frontend
+	 */
 	@PostMapping("restaurants/search")
 	public String getRestaurant(HttpServletRequest req) {
 		String restaurantId = req.getParameter("id");
 		return "redirect:/restaurants/"+restaurantId;
 	}
 	
+	//call with URL/restaurants/create
 	@RequestMapping(value="/restaurants/create", method=RequestMethod.GET)
 	public String getCreatePage() {
 		return "NewRestaurant";
 	}
 	
+	//call with URL/restaurants/create
 	@RequestMapping(value="restaurants/create", method=RequestMethod.POST)
-	public String addRestaurant() {
-		rdi.createRestaurant(new Restaurant());
+	public String addRestaurant(@RequestParam("id") int id) {
+		rdi.createRestaurant(new Restaurant(id));
 		return "redirect:/NewRestaurant.html";
+		//will need to handle this with the frontend
 	}
 	
 

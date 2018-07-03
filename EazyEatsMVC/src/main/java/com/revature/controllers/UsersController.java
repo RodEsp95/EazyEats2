@@ -24,11 +24,14 @@ public class UsersController {
 	@Autowired
 	UsersDaoImpl udi;
 	
+	//call with: URL/users
 	@GetMapping("/users")
+	@ResponseBody
 	public List<Users> getUsers(){
 		return udi.getUsers();
 	}
 	
+	//call with: URL/users/{id} (id will be the id of in the USERS table column
 	@GetMapping("/users/{id}")
 	@ResponseBody
 	public Users getUserById(@PathVariable("id") int id) {
@@ -39,31 +42,28 @@ public class UsersController {
 		return u;
 	}
 	
+	//Will probably need to change this, depending on what pages call this
 	@RequestMapping(value="/users/search", method=RequestMethod.GET)
 	public String getSearchPage() {
 		return "SearchUser";
 	}
 	
-	/*
-	 * Example using post
-	//@RequestMapping(value="bears/search", method=RequestMethod.POST)
-	@PostMapping("/bears/search")
-	public String getBear(@RequestParam("id") int bearId) {
-		return "redirect:/bears/"+bearId;
-	}
-	*/
 	
+	////Will probably need to change this, depending on what pages call this
+	//May need the same method per html page that calls it
 	@PostMapping("users/search")
 	public String getUser(HttpServletRequest req) {
 		String userId = req.getParameter("id");
 		return "redirect:/users/"+ userId;
 	}
 	
+	//call with: URL/users/create
 	@RequestMapping(value="/users/create", method=RequestMethod.GET)
 	public String getCreatePage() {
 		return "NewUser";
 	}
 	
+	//call with: URL/users/create
 	@RequestMapping(value="/users/create", method=RequestMethod.POST)
 	public String addUser(@RequestParam("name") String name, @RequestParam("username") String username,
 			@RequestParam("password") String password, @RequestParam("email") String email, @RequestParam("status") String status) {
