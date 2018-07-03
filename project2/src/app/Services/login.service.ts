@@ -12,5 +12,5 @@ export class LoginService {
 
   logincheck(username: string, password: string) {
     // method to checkk login 
-  }
+  } 
 } 

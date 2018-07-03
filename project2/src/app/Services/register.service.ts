@@ -11,4 +11,8 @@ export class RegisterService {
   register(username: string, email: string, password: string, firstname: string, lastname: string, zipcode: string) {
     // method to checkk login 
   }
+
+  updateProfile() {
+    //method to update profile
+  }
 }

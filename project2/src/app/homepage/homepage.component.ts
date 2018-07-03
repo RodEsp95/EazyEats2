@@ -4,6 +4,7 @@ import { Restaurant } from '../restaurant';
 import { CityService } from '../Services/city.service';
 import { City } from '../city';
 import { Observable, of } from 'rxjs';
+import { Result } from '../Result';
 
 @Component({
   selector: 'app-homepage',
@@ -16,22 +17,15 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  restaurants: Restaurant[];
-  cities: City[];
-  city: any;
-  cuisine: string;
+  result: Result;
+  city: number;
+  cuisine: number; 
 
   //method to show restaurants meeting URL in restaurant service
-  showRestaurants(city, cuisine): void {
-    this.restaurantservice.getRestaurants(city, cuisine).subscribe(restaurants => this.restaurants = restaurants )
-    //typeof(this.restaurants);
-    console.log(this.restaurants);
+  showRestaurants(): void {
+    this.restaurantservice.getRestaurants(this.city, this.cuisine).subscribe(res => this.result = res);
+    console.log(this.result);
+    document.getElementById("restaurantTable").style.display = "table";
   }
-
-  // citySearch(): void {
-  //   this.cityservice.citysearch().subscribe(cities => this.cities = cities);
-  //   console.log(this.cities);
-  // }
 
 }

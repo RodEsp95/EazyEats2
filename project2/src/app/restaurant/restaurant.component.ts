@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ReviewService } from '../Services/review.service';
+import { RestaurantService } from '../Services/restaurant.service';
+import { Result } from '../Result';
+import { restaurants } from '../restaurants';
+import { Restaurant } from '../restaurant';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-restaurant',
@@ -23,22 +28,29 @@ import { ReviewService } from '../Services/review.service';
 export class RestaurantComponent implements OnInit {
 
   currentRate: number = 0;
+  result: Result;
+  restaurant: restaurants;
+  rest: Restaurant;
+  id: number;
+  private sub: any;
 
-  constructor(private reviewservice: ReviewService) { }
+  constructor(private reviewservice: ReviewService, private restaurantservice: RestaurantService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-  }
-
-  submitrating() {
-    this.reviewservice.submitrating()
-    //need to figure submit rating method
-    console.log("submit rating method called")
+    this.sub = this.route.params.subscribe(params => {
+      this.id = +params['id'];})
+    this.displayRestaurant();
   }
 
   submitreview() {
     this.reviewservice.submitreview()
     //need to figure submit review method
     console.log("submit review method called")
+  }
+
+  displayRestaurant() {
+      this.restaurantservice.getRestaurantbyId(this.id).subscribe(res => this.result = res);
+      console.log(this.result);
   }
 
 }

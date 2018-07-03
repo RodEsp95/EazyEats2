@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RegisterService } from '../Services/register.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private profileservice: RegisterService) { }
+
+  updateProfile() {
+    this.profileservice.updateProfile();
+    console.log("profile update method has been run")
+  }
 
   ngOnInit() {
   }
 
 }
+ 
