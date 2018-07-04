@@ -27,6 +27,7 @@ public class UsersController {
 	UsersDaoImpl udi;
 	
 	//call with: URL/users
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/users")
 	@ResponseBody
 	public List<Users> getUsers(){
@@ -77,13 +78,14 @@ public class UsersController {
 	}
 	
 	//PATCH is working progress
-	//@PatchMapping
-	//public String updateUserStatus(@RequestParam("id") int id, 
-	//		@RequestParam("request") String request) {
-	//	Users u = udi.getUserById(id);
-	//	u.setStatus(request);
-	//	return "redirect:/NewUser.html";
-	//}
+	//@RequestMapping(value="users/{id}", method=RequestMethod.PATCH)
+	@PatchMapping("users/{id}")
+	public String updateUserStatus(@RequestParam("id") int id, 
+			@RequestParam("request") String request) {
+		Users u = udi.getUserById(id);
+		u.setStatus(request);
+		return "redirect:/NewUser.html";
+	}
 	
 
 }
