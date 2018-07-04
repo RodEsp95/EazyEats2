@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -84,10 +85,12 @@ public class ReviewController {
 	
 	//@CrossOrigin(origins = "http://localhost:4200")
 	//@PutMapping(value="/reviews/{id}")
+	//@RequestMapping(value="/reviews/{id}", method=RequestMethod.POST)
+	//@ResponseBody
+	//@PostMapping(value="/reviews/{id}")
 	@RequestMapping(value="/reviews/{id}", method=RequestMethod.POST)
-	@ResponseBody
-	public String updateRevie(@PathVariable("id") int id) {
-	    Review review = rdi.getReviewById(id);
+	public String updateReview(@RequestBody Review review, @PathVariable("id") int id) {
+	    //Review review = rdi.getReviewById(id);
 	    review.setNeedsReview(!review.isNeedsReview());
 	    rdi.updateReview(review);
 	    return "redirect/NewReview.html";
