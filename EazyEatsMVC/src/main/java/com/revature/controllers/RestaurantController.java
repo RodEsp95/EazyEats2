@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +26,7 @@ public class RestaurantController {
 	RestaurantDaoImpl rdi;
 	
 	//Call with URL/restaurants
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/restaurants")
 	@ResponseBody
 	public List<Restaurant> getRestaurants(){
@@ -33,6 +35,7 @@ public class RestaurantController {
 	
 	//Call with URL/restaurants/{id} (id is the value in the ID column in the 
 	//RESTAURANTS table
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/restaurants/{id}")
 	@ResponseBody
 	public Restaurant getRestaurantById(@PathVariable("id") int id) {

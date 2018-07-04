@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,6 +33,7 @@ public class UsersController {
 	}
 	
 	//call with: URL/users/{id} (id will be the id of in the USERS table column
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/users/{id}")
 	@ResponseBody
 	public Users getUserById(@PathVariable("id") int id) {
@@ -43,6 +45,7 @@ public class UsersController {
 	}
 	
 	//Will probably need to change this, depending on what pages call this
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/users/search", method=RequestMethod.GET)
 	public String getSearchPage() {
 		return "SearchUser";
@@ -64,6 +67,7 @@ public class UsersController {
 	}
 	
 	//call with: URL/users/create
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/users/create", method=RequestMethod.POST)
 	public String addUser(@RequestParam("name") String name, @RequestParam("username") String username,
 			@RequestParam("password") String password, @RequestParam("email") String email, @RequestParam("status") String status) {
