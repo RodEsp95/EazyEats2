@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -74,6 +75,15 @@ public class UsersController {
 		udi.createUser(new Users(name, username, password, email, status));
 		return "redirect:/NewUser.html";
 	}
+	
+	//PATCH is working progress
+	//@PatchMapping
+	//public String updateUserStatus(@RequestParam("id") int id, 
+	//		@RequestParam("request") String request) {
+	//	Users u = udi.getUserById(id);
+	//	u.setStatus(request);
+	//	return "redirect:/NewUser.html";
+	//}
 	
 
 }

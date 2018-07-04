@@ -94,7 +94,7 @@ public class ReviewDaoImpl implements ReviewDao{
 	public List<Review> getReviewsByRestaurantId(Integer id){
 		Session s = HibernateUtil.getSession();
 		Criteria c = s.createCriteria(Review.class);
-		c.add(Restrictions.eq("restaurant.id", id));
+		c.add(Restrictions.eq("restaurantId", id));
 		c.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Review> restaurantReviews = c.list();
 		s.close();
