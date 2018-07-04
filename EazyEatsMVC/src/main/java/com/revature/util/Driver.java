@@ -46,7 +46,9 @@ public static void main(String[] args) {
 		Users u1 = new Users("User1", "username1", "password1", "user1@gmail.com", "Normal");
 		Users u2 = new Users("User2", "username2", "password2", "user2@gmail.com", "Verified");
 		Users u3 = new Users("User3", "username3", "password3", "user3@gmail.com", "Admin");
-		
+		ud1.createUser(u1);
+		ud1.createUser(u2);
+		ud1.createUser(u3);
 		
 		ReviewDao rvd1 = new ReviewDaoImpl();
 		
