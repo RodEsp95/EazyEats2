@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<br>
+<form>
+      <legend>Register</legend>
+      <br>
+      <div class="form-group">
+          <input type="text" class="form-control col-sm-4" id="username" placeholder="Username" [(ngModel)]="username" name="username">
+      </div>
+      <div class="form-group">
+       <input type="email" class="form-control col-sm-4" id="email" aria-describedby="emailHelp" placeholder="Email" [(ngModel)]="email" name="email">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control col-sm-4" id="password" placeholder="Password" [(ngModel)]="password" name="password">
+      </div>
+      <div class="form-group">
+          <input type="text" class="form-control col-sm-4" id="firstname" placeholder="First Name" [(ngModel)]="firstname" name="firstname">
+      </div>
+        <div class="form-group">
+            <input type="text" class="form-control col-sm-4" id="lastname" placeholder="Last Name" [(ngModel)]="lastname" name="lastname">
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control col-sm-4" id="zipcode" placeholder="Zip Code" [(ngModel)]="zipcode" name="zipcode">
+        </div>
+      <button type="submit" class="btn btn-success btn-lg" (click)=register()>Register</button>
+  </form>

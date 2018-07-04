@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<br>
+<h4>{{result?.name}}</h4>
+<p>{{result?.location?.address}}</p>
+<p>Locality: {{result?.location?.locality}}</p>
+<p>Average Cost for Two: ${{result?.average_cost_for_two}}</p>
+<p>Yelp Rating: {{result?.user_rating?.aggregate_rating}}</p>
+<p>Cuisines: {{result?.cuisines}}</p>
+<hr>
+<h5>Rate and Review!</h5>
+<ngb-rating [(rate)]="currentRate">
+  <ng-template let-fill="fill" let-index="index">
+    <span class="star" [class.filled]="fill === 100">&#9733;</span>
+  </ng-template>
+</ngb-rating>
+<br>
+<p>Rating: {{currentRate}}</p>
+<form>
+    <div class="form-group">
+      <h5>User Review</h5>
+      <textarea class="form-control" id="userreview" rows="4" placeholder="Review the restaurant here..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-success btn-md" (click)=submitreview()>Submit Review</button>
+  </form> 
+
+
+
+

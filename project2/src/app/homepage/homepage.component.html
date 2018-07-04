@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-5">Find your next favorite restaurant!</h1>
+       <!-- <div class="form-group">
+        <br>
+          <input class="form-control form-control-lg" type="text" placeholder="Search for your city..." id="inputLarge">
+          <br> -->
+          <!--Working on two options: this seach bar and drop down menus below-->
+          <!-- <button type="button" class="btn btn-success btn-lg" (click)=showRestaurants()>Get Started!</button>
+        </div>
+        <br>
+        <br> -->
+        <div class="form-group">
+            <label for="cityselect">Select Your City</label>
+            <select class="form-control col-sm-6" id="cityselect" [(ngModel)]="city" name="city">
+              <option disabled selected value></option>
+              <option value="289">Boston</option>
+              <option value="292">Chicago</option>
+              <option value="281">Los Angeles</option>
+              <option value="280">New York City</option>
+              <option value="283">Washington DC</option>
+            </select>
+          </div>
+          <!-- <p>{{city}}</p> -->
+          <div class="form-group">
+              <label for="cuisineselect">Select Your Cuisine</label>
+              <select class="form-control col-sm-6" id="cuisineselect" [(ngModel)]="cuisine" name="cuisine">
+                <option disabled selected value> </option>
+                <option value="137">Halal</option>
+                <option value="218">Kosher</option>
+                <option value="308">Vegetarian</option>
+              </select>
+            </div>
+            <!-- <p>{{cuisine}}</p> -->
+          <button type="button" class="btn btn-success btn-lg" (click)=showRestaurants()>Search!</button>
+          <br><br>
+          <table id="restaurantTable"class="table table-hover" style="display:none">
+              <thead>
+                <tr>
+                  <th class="text-primary" scope="col">Restaurant</th>
+                  <th class="text-primary" scope="col">User Rating</th>
+                  <th class="text-primary" scope="col">Price for 2 ($)</th>
+                  <th class="text-primary" scope="col">Neighborhood</th>
+                  <th  class="text-primary"scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr class="table-secondary" *ngFor="let rest of result?.restaurants" >
+                  <th scope="row">{{rest.restaurant.name}}</th>
+                  <td>{{rest.restaurant.user_rating.aggregate_rating}}</td>
+                  <td>${{rest.restaurant.average_cost_for_two}}</td>
+                  <td>{{rest.restaurant.location.locality}}</td>
+                  <td><a class="btn btn-primary" [routerLink]="['/restaurant', rest.restaurant.id]">VIEW</a></td>
+                </tr>
+              </tbody>
+            </table> 
+    </div>
+  </div>

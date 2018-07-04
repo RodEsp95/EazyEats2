@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<br>
+<h1>Your Profile</h1>
+<br>
+<div class="row col-sm-7">
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <td>ID</td>
+      <td>1</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Email</td>
+      <td><input type="text" id ="email" name="email" value="example@email.com"/></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><input type="password" id ="password" name="password" value="example"/></td>
+    </tr>
+    <tr>
+      <td>First Name</td>
+      <td><input type="text" id ="firstname" name="firstname" value="Billy Bob"/></td>
+    </tr>
+    <tr>
+      <td>Last Name</td>
+      <td><input type="text" id ="lastname" name="lastname" value="Thornton"/></td>
+    </tr>
+    <tr> 
+      <td>Zip Code</td>
+      <td><input type="number" id ="zipcode" name="zipcode" value="20000"/></td>
+      </tr>
+  </tbody>
+</table>
+<button type="submit" class="btn btn-success btn-md" (click)=updateProfile()>Submit Profile Changes</button>
+</div>
+<br>
+<br>
+<app-verifiedrequest></app-verifiedrequest>
