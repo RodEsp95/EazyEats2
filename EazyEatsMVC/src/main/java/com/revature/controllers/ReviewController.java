@@ -82,8 +82,9 @@ public class ReviewController {
 		
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@PutMapping(value="/reviews/{id}")
+	//@CrossOrigin(origins = "http://localhost:4200")
+	//@PutMapping(value="/reviews/{id}")
+	@RequestMapping(value="/reviews/{id}", method=RequestMethod.POST)
 	public String updateRevie(@PathVariable("id") int id) {
 	    Review review = rdi.getReviewById(id);
 	    review.setNeedsReview(!review.isNeedsReview());
