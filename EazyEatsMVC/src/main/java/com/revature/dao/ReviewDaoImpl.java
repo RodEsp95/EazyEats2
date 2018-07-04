@@ -42,11 +42,9 @@ public class ReviewDaoImpl implements ReviewDao{
 	public int createReview(Review r, Integer userId, Integer restaurantId) {
 		Session s = HibernateUtil.getSession();
 		UsersDaoImpl ud = new UsersDaoImpl();
-		//RestaurantDaoImpl rd = new RestaurantDaoImpl();
 		Users u1 = ud.getUserById(userId);
-		Restaurant r1 = new Restaurant(restaurantId);
 		r.setUser(u1);
-		r.setRestaurant(r1);
+		r.setRestaurantId(restaurantId);
 		Transaction tx = s.beginTransaction();
 		int created = (int) s.save(r);
 		tx.commit();

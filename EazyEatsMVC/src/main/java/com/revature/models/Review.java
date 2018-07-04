@@ -16,7 +16,9 @@ public class Review {
 	private Users user;
 	//@ManyToOne
 	//@JoinColumn(name="RESTAURANT_ID")
-	private Restaurant restaurant;
+	//@Transient
+	@Column
+	private Integer restaurantId;
 	@Column
 	private String body;
 	@Column
@@ -39,11 +41,11 @@ public class Review {
 	public void setUser(Users user) {
 		this.user = user;
 	}
-	public Restaurant getRestaurant() {
-		return restaurant;
+	public Integer getRestaurantId() {
+		return restaurantId;
 	}
-	public void setRestaurant(Restaurant restaurant) {
-		this.restaurant = restaurant;
+	public void setRestaurantId(Integer restaurantId) {
+		this.restaurantId = restaurantId;
 	}
 	public Review(String body, int rating, boolean needsReview) {
 		super();
@@ -55,10 +57,10 @@ public class Review {
 	
 	
 	
-	public Review(Users user, Restaurant restaurant, String body, int rating, boolean needsReview) {
+	public Review(Users user, Integer restaurantId, String body, int rating, boolean needsReview) {
 		super();
 		this.user = user;
-		this.restaurant = restaurant;
+		this.restaurantId = restaurantId;
 		this.body = body;
 		this.rating = rating;
 		this.needsReview = needsReview;
@@ -90,7 +92,7 @@ public class Review {
 		result = prime * result + id;
 		result = prime * result + (needsReview ? 1231 : 1237);
 		result = prime * result + rating;
-		result = prime * result + ((restaurant == null) ? 0 : restaurant.hashCode());
+		result = prime * result + ((restaurantId == null) ? 0 : restaurantId.hashCode());
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
@@ -114,10 +116,10 @@ public class Review {
 			return false;
 		if (rating != other.rating)
 			return false;
-		if (restaurant == null) {
-			if (other.restaurant != null)
+		if (restaurantId == null) {
+			if (other.restaurantId != null)
 				return false;
-		} else if (!restaurant.equals(other.restaurant))
+		} else if (!restaurantId.equals(other.restaurantId))
 			return false;
 		if (user == null) {
 			if (other.user != null)
@@ -128,10 +130,13 @@ public class Review {
 	}
 	@Override
 	public String toString() {
-		return "Review [id=" + id + ", user=" + user + ", restaurant=" + restaurant + ", body=" + body + ", rating="
+		return "Review [id=" + id + ", user=" + user + ", restaurantId=" + restaurantId + ", body=" + body + ", rating="
 				+ rating + ", needsReview=" + needsReview + "]";
 	}
 	
+	
+	
+
 	
 	
 	

@@ -26,12 +26,12 @@ public class Users {
 	@Column 
 	private String status;
 	
-	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinTable(
-			name="FAV_RESTAURANTS",
-			joinColumns = {@JoinColumn(name="USER_ID")}, //cols from this table
-			inverseJoinColumns = {@JoinColumn(name="RESTAURANT_ID")}) //cols from beehive table
-	private List<Restaurant> favorites;
+	//@ManyToMany(fetch=FetchType.EAGER)
+	//@JoinTable(
+	//		name="FAV_RESTAURANTS",
+	//		joinColumns = {@JoinColumn(name="USER_ID")}, //cols from this table
+	//		inverseJoinColumns = {@JoinColumn(name="RESTAURANT_ID")}) //cols from beehive table
+	//private List<Integer> favorites;
 
 	public Users() {
 		super();
@@ -39,16 +39,6 @@ public class Users {
 	}
 
 	
-	public Users(String name, String username, String password, String email, String status, List<Restaurant> favorites) {
-		super();
-		//this.id = id;
-		this.name = name;
-		this.username = username;
-		this.password = password;
-		this.email = email;
-		this.status = status;
-		this.favorites = favorites;
-	}
 	
 	public Users(String name, String username, String password, String email, String status) {
 		super();
@@ -114,13 +104,13 @@ public class Users {
 	}
 
 
-	public List<Restaurant> getFavorites() {
-		return favorites;
-	}
+	//public List<Integer> getFavorites() {
+	//	return favorites;
+	//}
 
-	public void setFavorites(List<Restaurant> favorites) {
-		this.favorites = favorites;
-	}
+	//public void setFavorites(List<Integer> favorites) {
+	//	this.favorites = favorites;
+	//}
 
 
 	@Override
@@ -128,7 +118,7 @@ public class Users {
 		final int prime = 31;
 		Integer result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((favorites == null) ? 0 : favorites.hashCode());
+		//result = prime * result + ((favorites == null) ? 0 : favorites.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
@@ -151,11 +141,6 @@ public class Users {
 			if (other.email != null)
 				return false;
 		} else if (!email.equals(other.email))
-			return false;
-		if (favorites == null) {
-			if (other.favorites != null)
-				return false;
-		} else if (!favorites.equals(other.favorites))
 			return false;
 		if (id != other.id)
 			return false;
@@ -183,10 +168,14 @@ public class Users {
 	}
 
 
+
 	@Override
 	public String toString() {
 		return "Users [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password + ", email="
-				+ email + ", status=" + status + ", favorites=" + favorites + "]";
+				+ email + ", status=" + status + "]";
 	}
+
+
+	
 
 }

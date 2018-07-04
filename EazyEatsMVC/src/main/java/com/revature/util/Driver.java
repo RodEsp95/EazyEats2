@@ -22,12 +22,12 @@ public static void main(String[] args) {
 		Session s = HibernateUtil.getSession();
 		
 		
-		ReviewDao rvd1 = new ReviewDaoImpl();
-		List<Review> rList = rvd1.getReviewsByRestaurantId(10);
-		for(Review rev: rList) {
-			System.out.println(rev);
-		}
-		s.close();
+		//ReviewDao rvd1 = new ReviewDaoImpl();
+		//List<Review> rList = rvd1.getReviewsByRestaurantId(10);
+		//for(Review rev: rList) {
+		//	System.out.println(rev);
+		//}
+		//s.close();
 		
 		/*
 		ReviewDao rvd1 = new ReviewDaoImpl();
@@ -37,29 +37,30 @@ public static void main(String[] args) {
 		}
 		s.close();
 		*/
-		/*
+		
 		UsersDao ud1 = new UsersDaoImpl();
 		
-		Users u1 = ud1.getUserById(1);
-		Users u2 = ud1.getUserById(2);
-		Users u3 = ud1.getUserById(3);
-		RestaurantDao rd1 = new RestaurantDaoImpl();
-		Restaurant r1 = rd1.getRestaurantById(10);
-		Restaurant r2 = rd1.getRestaurantById(12);
+		//Users u1 = ud1.getUserById(1);
+		//Users u2 = ud1.getUserById(2);
+		//Users u3 = ud1.getUserById(3);
+		Users u1 = new Users("User1", "username1", "password1", "user1@gmail.com", "Normal");
+		Users u2 = new Users("User2", "username2", "password2", "user2@gmail.com", "Verified");
+		Users u3 = new Users("User3", "username3", "password3", "user3@gmail.com", "Admin");
+		
 		
 		ReviewDao rvd1 = new ReviewDaoImpl();
 		
-		Review rv1 = new Review(u1, r1, "This place is great", 7, false);
-		Review rv2 = new Review(u1, r2, "This place gave me raw steak!", 1, false);
-		Review rv3 = new Review(u2, r1, "Screw this joint!", 2, true);
-		Review rv4 = new Review(u3, r2, "I love the music here", 8, false);
-		Review rv5 = new Review(u3, r2, "Music sucks now", 1, true);
+		Review rv1 = new Review("This place is great", 7, false);
+		Review rv2 = new Review("This place gave me raw steak!", 1, false);
+		Review rv3 = new Review("Screw this joint!", 2, true);
+		Review rv4 = new Review("I love the music here", 8, false);
+		Review rv5 = new Review("Music sucks now", 1, true);
 		
-		rvd1.createReview(rv1);
-		rvd1.createReview(rv2);
-		rvd1.createReview(rv3);
-		rvd1.createReview(rv4);
-		rvd1.createReview(rv5);
+		rvd1.createReview(rv1, 1, 11);
+		rvd1.createReview(rv2, 1, 12);
+		rvd1.createReview(rv3, 2, 5);
+		rvd1.createReview(rv4, 3, 11);
+		rvd1.createReview(rv5, 2, 11);
 		
 		List<Review> reviews = rvd1.getReviews();
 		for(Review rev: reviews) {
@@ -67,7 +68,7 @@ public static void main(String[] args) {
 		}
 		
 		s.close();
-		*/
+		
 		/*
 		UsersDao ud1 = new UsersDaoImpl();
 		
