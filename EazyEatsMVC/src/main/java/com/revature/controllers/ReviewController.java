@@ -81,6 +81,7 @@ public class ReviewController {
 		
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PatchMapping(value="/reviews/{id}")
 	public String updateRevie(@PathVariable("id") int id) {
 	    Review review = rdi.getReviewById(id);
