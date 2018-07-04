@@ -91,6 +91,7 @@ public class UsersController {
 	//@CrossOrigin(origins = "http://localhost:4200")
 	//@PostMapping(value="/users/{id}")
 	@RequestMapping(value="/users/{id}", method=RequestMethod.POST)
+	@ResponseBody
     public String updateUser(@PathVariable("id") int id, 
     		@RequestParam("name") String name, @RequestParam("username") String username,
         @RequestParam("password") String password, @RequestParam("email") String email,
@@ -113,7 +114,7 @@ public class UsersController {
         }
         
         udi.updateUser(user);
-        return "redirect:/profile.component.html";
+        return "redirect:/NewUser.html";
     }
 	
 
