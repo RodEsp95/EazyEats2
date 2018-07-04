@@ -88,7 +88,7 @@ public class UsersController {
 	//	return "redirect:/NewUser.html";
 	//}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+	//@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping(value="/users/{id}")
     public String updateUser(@PathVariable("id") int id, 
     		@RequestParam("name") String name, @RequestParam("username") String username,
