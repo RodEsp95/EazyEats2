@@ -14,8 +14,8 @@ public class Review {
 	@ManyToOne
 	@JoinColumn(name="USER_ID")
 	private Users user;
-	@ManyToOne
-	@JoinColumn(name="RESTAURANT_ID")
+	//@ManyToOne
+	//@JoinColumn(name="RESTAURANT_ID")
 	private Restaurant restaurant;
 	@Column
 	private String body;

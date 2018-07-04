@@ -73,8 +73,9 @@ public class ReviewController {
 	//call with URL/reviews/create
 	@RequestMapping(value="/reviews/create", method=RequestMethod.POST)
 	public String addReview(@RequestParam("body") String body, @RequestParam("rating") int rating,
-			@RequestParam("needsReview") boolean needsReview) {
-		rdi.createReview(new Review(body, rating, needsReview));
+			@RequestParam("needsReview") boolean needsReview, @RequestParam("userId") int userId, 
+			@RequestParam("restaurantId") int restaurantId) {
+		rdi.createReview(new Review(body, rating, needsReview), userId, restaurantId);
 		return "redirect:/NewReview.html";
 		
 	}
