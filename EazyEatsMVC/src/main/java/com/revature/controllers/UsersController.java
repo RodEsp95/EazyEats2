@@ -67,7 +67,7 @@ public class UsersController {
 	}
 	
 	//call with: URL/users/create
-	@CrossOrigin(origins = "http://localhost:4200")
+	//@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/users/create", method=RequestMethod.POST)
 	public String addUser(@RequestParam("name") String name, @RequestParam("username") String username,
 			@RequestParam("password") String password, @RequestParam("email") String email, @RequestParam("status") String status) {
