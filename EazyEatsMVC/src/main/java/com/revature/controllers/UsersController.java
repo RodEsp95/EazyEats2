@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -94,7 +95,7 @@ public class UsersController {
 	//@RequestMapping(value="/users/{id}", method=RequestMethod.POST)
 	//@ResponseBody
 	//@PostMapping(value="/users/{id}")
-	@RequestMapping(value="/users/{id}", method=RequestMethod.POST)
+	@RequestMapping(value="/users/{id}", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE)
     public String updateUser(@RequestBody Users user, @PathVariable("id") int id, 
     		@RequestParam("name") String name, @RequestParam("username") String username,
         @RequestParam("password") String password, @RequestParam("email") String email,

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -88,7 +89,7 @@ public class ReviewController {
 	//@RequestMapping(value="/reviews/{id}", method=RequestMethod.POST)
 	//@ResponseBody
 	//@PostMapping(value="/reviews/{id}")
-	@RequestMapping(value="/reviews/{id}", method=RequestMethod.POST)
+	@RequestMapping(value="/reviews/{id}", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE)
 	public String updateReview(@RequestBody Review review, @PathVariable("id") int id) {
 	    //Review review = rdi.getReviewById(id);
 	    review.setNeedsReview(!review.isNeedsReview());
