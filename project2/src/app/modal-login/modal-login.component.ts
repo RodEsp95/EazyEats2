@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from '../Services/login.service';
 import { User } from '../user';
+import { Result } from '../result';
+import { RegisterService } from '../Services/register.service';
 
 @Component({
   selector: 'app-modal-login',
@@ -12,18 +14,36 @@ export class ModalLoginComponent implements OnInit {
 
   closeResult: string;
 
-  constructor(private modalService: NgbModal, private loginservice: LoginService) {}
+  constructor(private modalService: NgbModal, 
+    private loginservice: LoginService) {}
 
   username: string;
-  password: string;
-  passwordcheck: string
-  User: User;
+  email: string;
+  password: any;
+  name: string;
+  zipcode: number;
+  loggedin = false;
+  userId: number;
 
-  login(username, password): void {
-    this.loginservice.logincheck(username, password)
-    //need to figure out how to login
-    console.log("login method ran")
-  }
+  passwordcheck: string
+  User: any;
+  result: any;
+
+  login(): void {
+    this.loginservice.logincheck().subscribe(res => this.result = res); 
+     console.log(this.result);
+    
+     for(let loop of this.result) {
+        if(loop.username == this.username && loop.password == this.password){
+          console.log("logged in succesfully")
+          console.log(loop.id)
+          this.loginservice.loggedin = true;
+          this.loginservice.id = loop.id;
+          break;
+        }
+     }
+     console.log("User is logged in: " + this.loginservice.loggedin);
+  }  
 
 
   open(content) {

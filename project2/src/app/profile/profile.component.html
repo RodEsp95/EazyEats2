@@ -7,30 +7,30 @@
   <thead>
     <tr>
       <td>ID</td>
-      <td>1</td>
+      <td>{{id}}</td>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Email</td>
-      <td><input type="text" id ="email" name="email" value="example@email.com"/></td>
+      <td>Username</td>
+      <td><input type="text" id ="username" name="username" [(ngModel)]="username" name="username"  value={{User?.username}}/></td>
     </tr>
     <tr>
       <td>Password</td>
-      <td><input type="password" id ="password" name="password" value="example"/></td>
+      <td><input type="password" id ="password" name="password"  [(ngModel)]="password" name="password" value={{User?.password}}/></td>
     </tr>
     <tr>
-      <td>First Name</td>
-      <td><input type="text" id ="firstname" name="firstname" value="Billy Bob"/></td>
-    </tr>
-    <tr>
-      <td>Last Name</td>
-      <td><input type="text" id ="lastname" name="lastname" value="Thornton"/></td>
+      <td>Name</td>
+      <td><input type="text" id ="name" name="name" [(ngModel)]="name" name="name" value={{User?.name}}/></td>
     </tr>
     <tr> 
-      <td>Zip Code</td>
-      <td><input type="number" id ="zipcode" name="zipcode" value="20000"/></td>
+      <td>Email</td>
+      <td><input type="text" id ="email" name="email" [(ngModel)]="email" name="email" value={{User?.email}}/></td>
       </tr>
+      <tr> 
+        <td>Status</td>
+        <td>{{User?.status}}</td>
+        </tr>
   </tbody>
 </table>
 <button type="submit" class="btn btn-success btn-md" (click)=updateProfile()>Submit Profile Changes</button>
@@ -38,3 +38,29 @@
 <br>
 <br>
 <app-verifiedrequest></app-verifiedrequest>
+<br>
+<table id="reviewTable"class="table table-hover" style="display:table">
+    <thead>
+      <tr>
+        <th  class="text-primary"scope="col">Restaurant</th>
+        <th class="text-primary" scope="col">Location</th>
+        <th class="text-primary" scope="col">Cuisine</th>
+        <th class="text-primary" scope="col">Rating</th>
+        <th class="text-primary" scope="col">Review</th>
+        <th  class="text-primary"scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="table-secondary"  *ngFor="let rev of Review"  >
+        <th scope="row">{{rev?.id}}</th> 
+        <!-- Going to need custom directive to fill in restaurant info on reviews -->
+        <td></td> 
+        <!-- Going to need custom directive to fill in restaurant info on reviews -->
+        <td></td>
+        <!-- Going to need custom directive to fill in restaurant info on reviews -->
+        <td>{{rev?.rating}}</td>
+        <td>{{rev?.body}}</td>
+        <td><button class="btn btn-success">DELETE</button></td>
+      </tr>
+    </tbody>
+  </table> 

@@ -19,6 +19,8 @@ import { CityService } from './Services/city.service';
 import { LoginService } from './Services/login.service';
 import { RegisterService } from './Services/register.service';
 import { FormsModule } from '@angular/forms';
+import { RestaurantDirective } from './restaurant.directive';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { FormsModule } from '@angular/forms';
     CarouselComponent,
     VerifiedrequestComponent,
     RestaurantComponent,
+    RestaurantDirective,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
