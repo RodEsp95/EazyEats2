@@ -151,6 +151,7 @@ public class UsersController {
 	}
 	*/
 	
+	@CrossOrigin(origins = "http://localhost:4200", methods=RequestMethod.PATCH)
 	@PatchMapping(value="/users/{id}")
 	public String updateUser(@PathVariable("id") int id, 
 			@RequestParam("name") String name, @RequestParam("username") String username,
