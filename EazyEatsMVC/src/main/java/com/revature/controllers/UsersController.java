@@ -125,7 +125,7 @@ public class UsersController {
     }
 	*/
 	
-	@RequestMapping(value="/users/create", method=RequestMethod.POST)
+	@RequestMapping(value="/users/update", method=RequestMethod.POST)
 	public String updateUser(@RequestParam("id") int id, @RequestParam("name") String name, @RequestParam("username") String username,
 			@RequestParam("password") String password, @RequestParam("email") String email, @RequestParam("status") String status) {
 		Users user = udi.getUserById(id);
