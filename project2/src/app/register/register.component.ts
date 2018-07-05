@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../Services/register.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-register',
@@ -13,15 +14,16 @@ export class RegisterComponent implements OnInit {
   username: string;
   email: string;
   password: string;
-  firstname: string;
-  lastname: string;
-  zipcode: string;
+  name: string;
+  User: User;
 
   ngOnInit() { 
   }
 
-  register(username, email, password, firstname, lastname, zipcode): void {
-    this.registerservice.register(username, email, password, firstname, lastname, zipcode)
+  register(): void {
+    this.registerservice.register(this.username, this.email, this.password, this.name).subscribe(res => this.User =res);
+    console.log(this.User);
+    console.log(this.username, this.email, this.name);
     //need to figure out register method
     console.log("register method ran")
   }

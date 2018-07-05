@@ -1,12 +1,16 @@
 <app-navbar></app-navbar>
 <br>
-<h4>{{result?.name}}</h4>
+<h3>{{result?.name}}</h3>
+<h4>ID: {{id}}</h4>
 <p>{{result?.location?.address}}</p>
+<p>{{result?.location?.city}}</p>
 <p>Locality: {{result?.location?.locality}}</p>
 <p>Average Cost for Two: ${{result?.average_cost_for_two}}</p>
-<p>Yelp Rating: {{result?.user_rating?.aggregate_rating}}</p>
+<!-- <p>EazyEats Rating:  / 10</p> -->
+<p>Yelp Rating: {{result?.user_rating?.aggregate_rating * 2}} / 10</p>
 <p>Cuisines: {{result?.cuisines}}</p>
 <hr>
+<div *ngIf="loginservice.loggedin == true">
 <h5>Rate and Review!</h5>
 <ngb-rating [(rate)]="currentRate">
   <ng-template let-fill="fill" let-index="index">
@@ -18,10 +22,34 @@
 <form>
     <div class="form-group">
       <h5>User Review</h5>
-      <textarea class="form-control" id="userreview" rows="4" placeholder="Review the restaurant here..."></textarea>
+      <textarea class="form-control" id="userreview" rows="4" placeholder="Review the restaurant here..." [(ngModel)]="body" name="body"></textarea>
     </div>
     <button type="submit" class="btn btn-success btn-md" (click)=submitreview()>Submit Review</button>
-  </form> 
+  </form>
+  </div>
+  <br>
+  <h3>EazyEats Reviews</h3>
+  <table id="reviewTable"class="table table-hover" style="display:table">
+    <thead>
+      <tr>
+        <th  class="text-primary"scope="col">Verified</th>
+        <th class="text-primary" scope="col">Username</th>
+        <th class="text-primary" scope="col">Rating</th>
+        <th class="text-primary" scope="col">Body</th>
+        <th  class="text-primary"scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="table-secondary"  *ngFor="let rev of review"  >
+          <!-- Find a way to have verified requests listed at top and to hide "normal" type in verified column -->
+        <th scope="row">{{rev.user.status}}</th>
+        <td>{{rev.user.name}}</td>
+        <td>{{rev.rating}}</td>
+        <td>{{rev.body}}</td>
+        <td><button class="btn btn-primary">FLAG</button></td>
+      </tr>
+    </tbody>
+  </table> 
 
 
 

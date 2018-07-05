@@ -2,19 +2,18 @@
     <h3><a class="navbar-brand font-weight-bold" routerLink="/homepage">EazyEats</a></h3>
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav">
-        <li class="nav-item active">
+        <!-- <li class="nav-item active">
             <h5><a class="nav-link" routerLink="/homepage">Home <span class="sr-only">(current)</span></a></h5>
-        </li>
+        </li> -->
         <li class="nav-brand">
-            <h5><a class="nav-link" routerLink="/profile">Profile</a></h5>
+            <h5><a class="nav-link" routerLink="/profile" *ngIf="loginservice.loggedin == true">Profile</a></h5>
         </li>
-        <li class="nav-brand">
-            <h5><a class="nav-link" href="#">About</a></h5>
-        </li>
-        <li class="nav-brand">
-          <h5><a class="nav-link" href="#">Logout&nbsp;&nbsp;&nbsp;</a></h5>
+        <li class="nav-brand" *ngIf="loginservice.loggedin == true">
+          <h5><a class="nav-link" href="#" (click)="logout()" routerLink="/homepage" >Logout&nbsp;&nbsp;&nbsp;</a></h5>
         </li>
       </ul>
+      <div *ngIf="loginservice.loggedin == false">
         <app-modal-login></app-modal-login>
+    </div>
     </div>
   </nav>
