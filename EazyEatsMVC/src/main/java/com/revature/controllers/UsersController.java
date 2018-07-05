@@ -96,7 +96,8 @@ public class UsersController {
 	//@ResponseBody
 	//@PostMapping(value="/users/{id}")
 	@RequestMapping(value="/users/{id}", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE)
-    public String updateUser(@RequestBody Users user, @PathVariable("id") int id, 
+	@ResponseBody
+    public Users updateUser(@RequestBody Users user, @PathVariable("id") int id, 
     		@RequestParam("name") String name, @RequestParam("username") String username,
         @RequestParam("password") String password, @RequestParam("email") String email,
         @RequestParam("status") String status) {
@@ -119,7 +120,7 @@ public class UsersController {
         }
         
         udi.updateUser(user);
-        return "redirect:/NewUser.html";
+        return user;
     }
 	
 
