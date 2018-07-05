@@ -94,7 +94,7 @@ public class ReviewController {
 	}
 	
 	//call with URL/reviews/byUser/{id}
-	//@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/reviews/byUser/{id}")
 	@ResponseBody
 	public List<Review> getReviewsUserId(@PathVariable("id") Integer id){
