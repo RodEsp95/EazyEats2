@@ -11,18 +11,14 @@
         </div>
         <br>
         <br> -->
-        <div class="form-group">
-            <label for="cityselect">Select Your City</label>
-            <select class="form-control col-sm-6" id="cityselect" [(ngModel)]="city" name="city">
-              <option disabled selected value></option>
-              <option value="289">Boston</option>
-              <option value="292">Chicago</option>
-              <option value="281">Los Angeles</option>
-              <option value="280">New York City</option>
-              <option value="283">Washington DC</option>
-            </select>
-          </div>
-          <!-- <p>{{city}}</p> -->
+        <ul class="search-result", [(ngModel)]="city" name="city">
+          <li *ngFor="let city of cities$ | async" >
+            <span value="{{city.id}}">
+              {{city.name}}
+            </span>
+          </li>
+        </ul>
+                <!-- <p>{{city}}</p> -->
           <div class="form-group">
               <label for="cuisineselect">Select Your Cuisine</label>
               <select class="form-control col-sm-6" id="cuisineselect" [(ngModel)]="cuisine" name="cuisine">
