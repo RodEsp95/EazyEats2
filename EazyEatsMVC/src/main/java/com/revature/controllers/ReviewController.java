@@ -84,15 +84,11 @@ public class ReviewController {
 		
 	}
 	
-	//@CrossOrigin(origins = "http://localhost:4200")
-	//@PutMapping(value="/reviews/{id}")
-	//@RequestMapping(value="/reviews/{id}", method=RequestMethod.POST)
-	//@ResponseBody
-	//@PostMapping(value="/reviews/{id}")
-	@RequestMapping(value="/reviews/{id}", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE)
-	public String updateReview(@RequestBody Review review, @PathVariable("id") int id) {
-	    //Review review = rdi.getReviewById(id);
-	    review.setNeedsReview(!review.isNeedsReview());
+	@CrossOrigin(origins = "http://localhost:4200", methods=RequestMethod.PATCH)
+	@PatchMapping(value="/reviews/{id}")
+	public String updateReview(@PathVariable("id") int id, @RequestParam("needsReview") boolean needsReview) {
+		Review review = rdi.getReviewById(id);
+		review.setNeedsReview(needsReview);
 	    rdi.updateReview(review);
 	    return "redirect/NewReview.html";
 	}
