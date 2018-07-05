@@ -125,6 +125,7 @@ public class UsersController {
     }
 	*/
 	
+	/*
 	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/users/update", method=RequestMethod.PATCH)
 	public String updateUser(@RequestParam("id") int id, @RequestParam("name") String name, @RequestParam("username") String username,
@@ -148,6 +149,32 @@ public class UsersController {
 		udi.updateUser(user);
 		return "redirect:/NewUser.html";
 	}
+	*/
+	
+	@PatchMapping(value="/users/{id}")
+	public String updateUser(@PathVariable("id") int id, 
+			@RequestParam("name") String name, @RequestParam("username") String username,
+			@RequestParam("password") String password, @RequestParam("email") String email,
+			@RequestParam("status") String status) {
+		Users user = udi.getUserById(id);
+		if(name != null) {
+			user.setName(name);
+			}
+		if(username != null) {
+			user.setUsername(username);
+			}
+		if(password != null) {
+			user.setPassword(password);
+			}
+		if(email != null) {
+			user.setEmail(email);
+			}
+		if(status != null) {
+			user.setStatus(status);
+			}
+		udi.updateUser(user);
+		return "redirect:/NewUser.html";
+		}
 	
 
 }
