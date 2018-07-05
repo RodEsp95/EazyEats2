@@ -101,6 +101,15 @@ public class ReviewDaoImpl implements ReviewDao{
 		return restaurantReviews;
 	}
 	
+	@Override
+	public List<Review> getReviewsByNeedsReview(){
+		Session s = HibernateUtil.getSession();
+		Criteria c = s.createCriteria(Review.class);
+		c.add(Restrictions.eq("needsReview", true));
+		c.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		List<Review> needReviews = c.list();
+		return needReviews;
+	}
 	
 
 }

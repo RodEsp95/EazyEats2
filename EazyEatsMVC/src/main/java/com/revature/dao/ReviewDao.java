@@ -13,5 +13,6 @@ public interface ReviewDao {
 	public void deleteReviewById(int id);
 	public List<Review> getReviewsByUserId(Integer id);
 	public List<Review> getReviewsByRestaurantId(Integer id);
+	public List<Review> getReviewsByNeedsReview();
 
 }

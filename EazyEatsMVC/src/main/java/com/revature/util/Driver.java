@@ -71,50 +71,6 @@ public static void main(String[] args) {
 		
 		s.close();
 		
-		/*
-		UsersDao ud1 = new UsersDaoImpl();
-		
-		Users u1 = new Users("User1", "username1", "password1", "user1@gmail.com", "Normal");
-		Users u2 = new Users("User2", "username2", "password2", "user2@gmail.com", "Verified");
-		Users u3 = new Users("User3", "username3", "password3", "user3@gmail.com", "Admin");
-		//System.out.println(u1.getId());
-		
-		Restaurant r1 = new Restaurant();
-		Restaurant r2 = new Restaurant();
-		Restaurant r3 = new Restaurant();
-		r1.setId(10);
-		r2.setId(11);
-		r3.setId(12);
-		
-		RestaurantDao rd1 = new RestaurantDaoImpl();
-		
-		rd1.createRestaurant(r1);
-		rd1.createRestaurant(r2);
-		rd1.createRestaurant(r3);
-		
-		List<Restaurant> list1 = new ArrayList<Restaurant>();
-		list1.add(r1);
-		list1.add(r2);
-		
-		List<Restaurant> list2 = new ArrayList<Restaurant>();
-		list2.add(r2);
-		list2.add(r3);
-		
-		u1.setFavorites(list1);
-		u2.setFavorites(list2);
-		u3.setFavorites(list1);
-		
-		ud1.createUser(u1);
-		ud1.createUser(u2);
-		ud1.createUser(u3);
-		
-		List<Users> userList = ud1.getUsers();
-		for(Users u : userList) {
-			System.out.println(userList);
-		}
-		s.close();
-		*/
-		
 	}
 	
 }

@@ -121,5 +121,11 @@ public class ReviewController {
 		return "Review deleted";
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@GetMapping("/reviews/flaggedReviews")
+	@ResponseBody
+	public List<Review> getReviewsByNeedsReview(){
+		return rdi.getReviewsByNeedsReview();
+	}
 
 }
