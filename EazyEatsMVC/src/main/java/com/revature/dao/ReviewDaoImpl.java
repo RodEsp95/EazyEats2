@@ -108,6 +108,7 @@ public class ReviewDaoImpl implements ReviewDao{
 		c.add(Restrictions.eq("needsReview", true));
 		c.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Review> needReviews = c.list();
+		s.close();
 		return needReviews;
 	}
 	
