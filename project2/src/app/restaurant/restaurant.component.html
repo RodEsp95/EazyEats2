@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<br>
+<h3>{{result?.name}}</h3>
+<h6>ID: {{result?.id}}</h6>
+<p>{{result?.location?.address}}</p>
+<p>{{result?.location?.city}}</p>
+<p>Locality: {{result?.location?.locality}}</p>
+<p>Average Cost for Two: ${{result?.average_cost_for_two}}</p>
+<!-- <p>EazyEats Rating:  / 10</p> -->
+<p>Yelp Rating: {{result?.user_rating?.aggregate_rating * 2}} / 10</p>
+<p>Cuisines: {{result?.cuisines}}</p>
+<hr>
+<div *ngIf="loginservice.loggedin == true">
+<h5>Rate and Review!</h5>
+<ngb-rating [(rate)]="currentRate">
+  <ng-template let-fill="fill" let-index="index">
+    <span class="star" [class.filled]="fill === 100">&#9733;</span>
+  </ng-template>
+</ngb-rating>
+<br>
+<p>Rating: {{currentRate}}</p>
+<form>
+    <div class="form-group">
+      <h5>User Review</h5>
+      <textarea class="form-control" id="userreview" rows="4" placeholder="Review the restaurant here..." [(ngModel)]="body" name="body"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success btn-md" (click)=submitreview()>Submit Review</button>
+  </form>
+  </div>
+  <br>
+  <h3>EazyEats Reviews</h3>
+  <table id="reviewTable"class="table table-hover" style="display:table">
+    <thead>
+      <tr>
+        <!-- <th  class="text-primary"scope="col">Verified</th> -->
+        <th class="text-primary" scope="col">Username</th>
+        <th class="text-primary" scope="col">Rating</th>
+        <th class="text-primary" scope="col">Body</th>
+        <th  class="text-primary"scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="table-secondary"  *ngFor="let rev of review"  >
+          <!-- Find a way to have verified requests listed at top and to hide "normal" type in verified column -->
+        <!-- <th scope="row">{{rev.user.status}}</th> -->
+        <td>{{rev.user.username}}</td>
+        <td>{{rev.rating}}</td>
+        <td>{{rev.body}}</td>
+        <td><button class="btn btn-danger" (click)=flagReview(rev.id)>Flag Review</button></td>
+      </tr>
+    </tbody>
+  </table> 
+
+
+
+

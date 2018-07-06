@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+<!-- <br>
+<h3>Verified User Requests&#160;&#160;<button class="btn btn-lg btn-success" style="border-radius: 10px">View</button></h3>
+<table id="verifiedRequests"class="table table-hover" style="display:table" style="display:none">
+  <thead>
+    <tr>
+        <th class="text-primary"scope="col">Restaurant</th>
+        <th class="text-primary" scope="col">Location</th>
+        <th class="text-primary" scope="col">Cuisine</th>
+        <th class="text-primary" scope="col">Rating</th>
+        <th class="text-primary" scope="col">Review</th>
+        <th  class="text-primary"scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+      <!-- *ngFor="let rev of Review" -->
+      <!-- <tr class="table-secondary"  >
+      <th scope="row"></th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><button class="btn btn-success">Approve</button></td>
+    </tr>
+  </tbody>
+</table>  -->
+<br><br>
+<h3>Flagged Reviews</h3>
+<!--<button class="btn btn-lg btn-success"  style="border-radius: 10px" (click)=loadFlaggedReviews()>View</button> -->
+<table id="reviewTable"class="table table-hover" style="display:table" style="display: none">
+    <thead>
+      <tr>
+          <th  class="text-primary"scope="col">Restaurant ID</th>
+          <th class="text-primary" scope="col">Username</th>
+          <th class="text-primary" scope="col">Rating</th>
+          <th class="text-primary" scope="col">Review</th>
+          <th  class="text-primary"scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <!-- *ngFor="let rev of Review" -->
+        <tr class="table-secondary" *ngFor="let flag of review" >
+        <th scope="row">{{flag?.restaurantId}}</th> 
+        <td>{{flag?.user.username}}</td> 
+        <td>{{flag?.rating}}</td>
+        <td>{{flag?.body}}</td>
+        <td><button class="btn btn-danger" (click)=deleteReview(flag.id) style="border-radius: 10px">Delete Review</button></td>
+        <td><button class="btn btn-success" (click)=dismissComplaint(flag.id) style="border-radius: 10px">Dismiss Complaint</button></td>
+      </tr>
+    </tbody>
+  </table> 
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
