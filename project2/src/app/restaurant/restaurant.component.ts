@@ -52,6 +52,10 @@ export class RestaurantComponent implements OnInit {
     this.loadReviewsByRestaurant();
   }
 
+  flagReview(id: number) {
+    this.reviewservice.flagReview(id).subscribe(rev => console.log(rev));
+  }
+
   submitreview(): void {
     this.reviewservice.submitreview(this.currentRate, this.body, this.userId, this.restaurantId).subscribe(rev => this.review = rev)
     console.log(this.review);

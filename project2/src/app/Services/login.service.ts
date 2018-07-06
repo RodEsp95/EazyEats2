@@ -16,9 +16,10 @@ export class LoginService {
   User: User;
   loggedin: boolean = false;
   id: number;
+  UserStatus = "Normal";
 
-  logincheck(): Observable<Result> {
+  logincheck(): Observable<User> {
     // method to check login
-    return this.http.get<Result>(this.url); 
+    return this.http.get<User>(this.url); 
   } 
 }  

@@ -14,10 +14,4 @@ export class VerifiedrequestComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitverifieduserrequest() {
-    this.reviewservice.submitverifieduserrequest()
-    //need to figure submitverifieduserrequest
-    console.log("Submit Verified User Request method called")
-  }
-
 }

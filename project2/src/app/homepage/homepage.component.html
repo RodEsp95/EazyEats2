@@ -28,12 +28,12 @@
               <select class="form-control col-sm-6" id="cuisineselect" [(ngModel)]="cuisine" name="cuisine">
                 <option disabled selected value> </option>
                 <option value="137">Halal</option>
-                <option value="218">Kosher</option>
+                <option value="265">Kosher</option>
                 <option value="308">Vegetarian</option>
               </select>
             </div>
             <!-- <p>{{cuisine}}</p> -->
-          <button type="button" class="btn btn-success btn-lg" (click)=showRestaurants()>Search!</button>
+          <button type="button" class="btn btn-success btn-lg" (click)=showRestaurants() style="border-radius: 10px">Search!</button>
           <br><br>
           <table id="restaurantTable"class="table table-hover" style="display:none">
               <thead>
@@ -51,7 +51,7 @@
                   <td>{{rest.restaurant.user_rating.aggregate_rating}}</td>
                   <td>${{rest.restaurant.average_cost_for_two}}</td>
                   <td>{{rest.restaurant.location.locality}}</td>
-                  <td><a class="btn btn-primary" [routerLink]="['/restaurant', rest.restaurant.id]">VIEW</a></td>
+                  <td><a class="btn btn-primary" [routerLink]="['/restaurant', rest.restaurant.id]" style="border-radius: 10px">VIEW</a></td>
                 </tr>
               </tbody>
             </table> 

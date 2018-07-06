@@ -13,8 +13,20 @@ export class ReviewService {
 
   private url='http://ec2-18-191-166-192.us-east-2.compute.amazonaws.com:8080/EazyEatsMVC/reviews';
 
-  submitverifieduserrequest() {
-    
+  deleteReviews(id: number): Observable<review> {
+    return this.http.delete<review>(this.url+'/'+id);
+  }
+
+  flagReview(id: number): Observable<review> {
+    return this.http.patch<review>(this.url+'/'+id+'?needsReview=true', review);
+  }
+
+  dismissFlagReview(id: number): Observable<review> {
+    return this.http.patch<review>(this.url+'/'+id+'?needsReview=false', review);
+  }
+
+  loadAllFlaggedReviews(): Observable<review> {
+    return this.http.get<review>(this.url+'/flaggedReviews');
   }
 
   loadreviewsbyuser(id: number): Observable<review> {

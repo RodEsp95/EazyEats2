@@ -17,8 +17,8 @@ getprofile(id: number): Observable<User> {
   return this.http.get<User>(this.url+id);
 }
 
-updateProfile(id: number, name: string, username: string, email: string, password: string, status: string): Observable<User> {
-  return this.http.post<User>(this.url+id+'?name='+name+'&username='+username+'&password='+password+'&email='+email+'&status='+status, User);
+updateProfile(id: number, name: string, username: string, password: string, email: string, status: string): Observable<User> {
+  return this.http.patch<User>(this.url+id+'?name='+name+'&username='+username+'&password='+password+'&email='+email+'&status='+status, User);
 }
 
 }

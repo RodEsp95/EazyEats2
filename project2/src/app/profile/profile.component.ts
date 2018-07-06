@@ -38,12 +38,12 @@ export class ProfileComponent implements OnInit {
   }
 
   loadReviewsByUser() {
-    this.reviewservice.loadreviewsbyuser(this.id).subscribe(reviews => this.Review = reviews);
+    this.reviewservice.loadreviewsbyuser(this.loginservice.id).subscribe(reviews => this.Review = reviews);
     console.log(this.Review)
   }
 
   updateProfile() {
-    this.profileservice.updateProfile(this.loginservice.id, this.name, this.username, this.password, this.email, this.status)
+    this.profileservice.updateProfile(this.loginservice.id, this.name, this.username, this.password, this.email, this.User.status)
     .subscribe(update => console.log("Update profile method ran: "+ update));
   }
 

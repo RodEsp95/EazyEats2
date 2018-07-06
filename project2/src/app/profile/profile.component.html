@@ -13,54 +13,51 @@
   <tbody>
     <tr>
       <td>Username</td>
-      <td><input type="text" id ="username" name="username" [(ngModel)]="username" name="username"  value={{User?.username}}/></td>
+      <td><input type="text" id ="username" [(ngModel)]="username" name="username"  value={{User?.username}}/></td>
     </tr>
     <tr>
       <td>Password</td>
-      <td><input type="password" id ="password" name="password"  [(ngModel)]="password" name="password" value={{User?.password}}/></td>
+      <td><input type="password" id ="password"  [(ngModel)]="password" name="password" value={{User?.password}}/></td>
     </tr>
     <tr>
       <td>Name</td>
-      <td><input type="text" id ="name" name="name" [(ngModel)]="name" name="name" value={{User?.name}}/></td>
+      <td><input type="text" id ="name" [(ngModel)]="name" name="name" value={{User?.name}}/></td>
     </tr>
     <tr> 
       <td>Email</td>
-      <td><input type="text" id ="email" name="email" [(ngModel)]="email" name="email" value={{User?.email}}/></td>
+      <td><input type="text" id ="email"  [(ngModel)]="email" name="email" value={{User?.email}}/></td>
       </tr>
-      <tr> 
-        <td>Status</td>
-        <td>{{User?.status}}</td>
-        </tr>
   </tbody>
 </table>
-<button type="submit" class="btn btn-success btn-md" (click)=updateProfile()>Submit Profile Changes</button>
+<button type="submit" class="btn btn-success btn-md" (click)=updateProfile() style="border-radius: 10px">Submit Profile Changes</button>
 </div>
 <br>
 <br>
-<app-verifiedrequest></app-verifiedrequest>
+<!-- <app-verifiedrequest></app-verifiedrequest> -->
 <br>
+<h4>Your Reviews</h4>
 <table id="reviewTable"class="table table-hover" style="display:table">
     <thead>
       <tr>
         <th  class="text-primary"scope="col">Restaurant</th>
-        <th class="text-primary" scope="col">Location</th>
-        <th class="text-primary" scope="col">Cuisine</th>
+        <!-- <th class="text-primary" scope="col">Location</th>
+        <th class="text-primary" scope="col">Cuisine</th> -->
         <th class="text-primary" scope="col">Rating</th>
         <th class="text-primary" scope="col">Review</th>
-        <th  class="text-primary"scope="col"></th>
+        <!-- <th  class="text-primary"scope="col"></th> -->
       </tr>
     </thead>
     <tbody>
         <tr class="table-secondary"  *ngFor="let rev of Review"  >
         <th scope="row">{{rev?.id}}</th> 
         <!-- Going to need custom directive to fill in restaurant info on reviews -->
-        <td></td> 
+        <!-- <td></td>  -->
         <!-- Going to need custom directive to fill in restaurant info on reviews -->
-        <td></td>
+        <!-- <td></td> -->
         <!-- Going to need custom directive to fill in restaurant info on reviews -->
         <td>{{rev?.rating}}</td>
         <td>{{rev?.body}}</td>
-        <td><button class="btn btn-success">DELETE</button></td>
+        <!-- <td><button class="btn btn-success" style="border-radius: 10px">DELETE</button></td> -->
       </tr>
     </tbody>
   </table> 

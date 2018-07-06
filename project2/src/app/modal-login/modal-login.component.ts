@@ -37,8 +37,10 @@ export class ModalLoginComponent implements OnInit {
         if(loop.username == this.username && loop.password == this.password){
           console.log("logged in succesfully")
           console.log(loop.id)
+          console.log(loop.status);
           this.loginservice.loggedin = true;
           this.loginservice.id = loop.id;
+          this.loginservice.UserStatus = loop.status;
           break;
         }
      }

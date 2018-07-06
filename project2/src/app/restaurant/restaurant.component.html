@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <br>
 <h3>{{result?.name}}</h3>
-<h4>ID: {{id}}</h4>
+<h6>ID: {{result?.id}}</h6>
 <p>{{result?.location?.address}}</p>
 <p>{{result?.location?.city}}</p>
 <p>Locality: {{result?.location?.locality}}</p>
@@ -32,7 +32,7 @@
   <table id="reviewTable"class="table table-hover" style="display:table">
     <thead>
       <tr>
-        <th  class="text-primary"scope="col">Verified</th>
+        <!-- <th  class="text-primary"scope="col">Verified</th> -->
         <th class="text-primary" scope="col">Username</th>
         <th class="text-primary" scope="col">Rating</th>
         <th class="text-primary" scope="col">Body</th>
@@ -42,11 +42,11 @@
     <tbody>
         <tr class="table-secondary"  *ngFor="let rev of review"  >
           <!-- Find a way to have verified requests listed at top and to hide "normal" type in verified column -->
-        <th scope="row">{{rev.user.status}}</th>
-        <td>{{rev.user.name}}</td>
+        <!-- <th scope="row">{{rev.user.status}}</th> -->
+        <td>{{rev.user.username}}</td>
         <td>{{rev.rating}}</td>
         <td>{{rev.body}}</td>
-        <td><button class="btn btn-primary">FLAG</button></td>
+        <td><button class="btn btn-danger" (click)=flagReview(rev.id)>Flag Review</button></td>
       </tr>
     </tbody>
   </table> 

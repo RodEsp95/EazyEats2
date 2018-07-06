@@ -21,6 +21,7 @@ import { RegisterService } from './Services/register.service';
 import { FormsModule } from '@angular/forms';
 import { RestaurantDirective } from './restaurant.directive';
 import { FooterComponent } from './footer/footer.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FooterComponent } from './footer/footer.component';
     RestaurantComponent,
     RestaurantDirective,
     FooterComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
